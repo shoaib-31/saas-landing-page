@@ -38,7 +38,7 @@ const loginItems = [
 }[];
 
 export const Header = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const handleClickNavItem = (
     e: React.MouseEvent<HTMLAnchorElement>,

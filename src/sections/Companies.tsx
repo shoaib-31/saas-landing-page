@@ -8,26 +8,26 @@ import OutsideLogo from "../assets/images/outside-logo.svg";
 export const Companies = () => {
   return (
     <section>
-      <div className="container border-l border-r border-gray-800 pb-48">
+      <div className="container border-l border-r border-gray-800 pb-24  md:pb-36 lg:pb-48">
         <h3 className="text-center text-xs font-bold uppercase tracking-widest text-gray-500">
           Helping people create beautiful content at
         </h3>
         <div className="flex overflow-x-hidden -m-4">
-          <div className="flex flex-none justify-center gap-36 px-18 mt-20">
+          <div className="flex flex-none justify-center gap-18 md:gap-36 px-18 mt-20">
             <div className="font-space text-white font-extrabold text-xl">
-              <AcmeCorpLogo />
+              <AcmeCorpLogo className="h-8" />
             </div>
             <div className="font-space text-white font-extrabold text-xl">
-              <EchoValleyLogo />
+              <EchoValleyLogo className="h-8" />
             </div>
             <div className="font-space text-white font-extrabold text-xl">
-              <QuantumLogo />
+              <QuantumLogo className="h-8" />
             </div>
             <div className="font-space text-white font-extrabold text-xl">
-              <PulseLogo />
+              <PulseLogo className="h-8" />
             </div>
             <div className="font-space text-white font-extrabold text-xl">
-              <OutsideLogo />
+              <OutsideLogo className="h-8" />
             </div>
           </div>
         </div>

@@ -11,7 +11,6 @@ const config: Config = {
       sm: "375px",
       md: "768px",
       lg: "1200px",
-      xl: "1440px",
     },
     extend: {
       fontFamily: {
@@ -24,6 +23,9 @@ const config: Config = {
           DEFAULT: "1rem",
           lg: "2rem",
         },
+      },
+      gap: {
+        18: "4.5rem",
       },
       inset: {
         18: "4.5rem",

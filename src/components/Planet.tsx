@@ -33,9 +33,7 @@ export const Planet = (
         color: props.color,
         className: props.className,
       })}
-    >
-      Planet
-    </div>
+    ></div>
   );
 };
 
