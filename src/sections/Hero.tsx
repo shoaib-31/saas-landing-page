@@ -103,9 +103,9 @@ export const Hero = () => {
               </div>
 
               {/* Begin Floating Input Field */}
-              <div className="absolute   left-1/2 -translate-x-1/2 bottom-4 md:bottom-10   ">
-                <div className="px-4 w-full max-w-sm">
-                  <div className="bg-gray-950/80 flex items-center gap-4 px-4 py-2 rounded-2xl">
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-2 md:bottom-4 lg:bottom-10 w-full flex justify-center">
+                <div className="px-4 max-w-xs w-full">
+                  <div className="bg-gray-950/80 flex items-center gap-4 px-4 py-2 rounded-2xl w-full">
                     <div>
                       <Loader className="text-violet-400" />
                     </div>

@@ -9,6 +9,11 @@ import jiraLogo from "../assets/images/jira-logo.png";
 import gcpLogo from "../assets/images/gcp-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import { Button } from "@/components/Button";
+import { SectionBorder } from "@/components/SectionBorder";
+import { Orbit } from "@/components/Orbit";
+import { Logo } from "@/components/Logo";
 
 const features = [
   "Seamless integration",
@@ -16,98 +21,112 @@ const features = [
   "Top-notch security",
 ];
 
+const logos = [
+  {
+    src: slackLogo,
+    alt: "slack logo",
+    rotate: 0,
+  },
+  {
+    src: dockerLogo,
+    alt: "docker logo",
+    rotate: 45,
+  },
+  {
+    src: figmaLogo,
+    alt: "figma logo",
+    rotate: 90,
+  },
+  {
+    src: githubLogo,
+    alt: "github logo",
+    rotate: 135,
+  },
+  {
+    src: vsCodeLogo,
+    alt: "vs code logo",
+    rotate: 180,
+  },
+  {
+    src: notionLogo,
+    alt: "notion logo",
+    rotate: 225,
+  },
+  {
+    src: jiraLogo,
+    alt: "jira logo",
+    rotate: 270,
+  },
+  {
+    src: gcpLogo,
+    alt: "gcp logo",
+    rotate: 315,
+  },
+];
+
 export const Features = () => {
   return (
     <section>
-      <div className="container px-40 border-l border-r border-t border-gray-800 py-48 relative">
-        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
-          <FontAwesomeIcon
-            icon={faPlus}
-            className="fill-white size-4 stroke-2 stroke stroke-white"
-          />
-        </div>
-        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2">
-          <FontAwesomeIcon
-            icon={faPlus}
-            className="fill-white size-4 stroke-2 stroke stroke-white"
-          />
-        </div>
-        <div className="grid grid-cols-2">
-          <div>
-            <h2 className="text-5xl font-semibold leading-tight">
-              AI chat app for seamless collaboration
-            </h2>
-            <ul className="flex flex-col gap-8 mt-12 font-space">
-              {features.map((feature) => (
-                <li key={feature}>
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <FontAwesomeIcon
-                        icon={faCircleCheck}
-                        className="fill-violet-500 size-6"
-                      />
+      <div className="container">
+        <SectionBorder
+          className="py-24 md:py-36 lg:py-48 md:px-20 lg:px-40"
+          borderTop
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+                AI chat app for seamless collaboration
+              </h2>
+              <ul className="flex flex-col gap-8 mt-12 font-space">
+                {features.map((feature) => (
+                  <li key={feature}>
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <FontAwesomeIcon
+                          icon={faCircleCheck}
+                          className="text-violet-400 size-6"
+                        />
+                      </div>
+                      <h3 className="font-medium text-xl">
+                        Seamless integration
+                      </h3>
                     </div>
-                    <h3 className="font-medium text-xl">
-                      Seamless integration
-                    </h3>
+                  </li>
+                ))}
+              </ul>
+              <Button className="mt-16" variant="primary">
+                Try it now
+              </Button>
+            </div>
+            <div className="flex justify-center">
+              <div className="flex items-center justify-center size-[270px] sm:size-[450px] flex-shrink-0 relative">
+                <div className="absolute inset-0">
+                  <Orbit className="absolute-center size-[180px] sm:size-[300px]" />
+                  <Orbit className="absolute-center size-[270px] sm:size-[450px]" />
+                </div>
+                {logos.map(({ src, alt, rotate }) => (
+                  <div
+                    key={alt}
+                    className="absolute-center size-full"
+                    style={{
+                      transform: `translate(-50%, -50%) rotate(${rotate}deg) `,
+                    }}
+                  >
+                    <div
+                      className="absolute size-10 sm:size-14 rounded-lg border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center bg-gray-950"
+                      style={{
+                        transform: `translate(-50%, -50%) rotate(-${rotate}deg) `,
+                      }}
+                    >
+                      <Image src={src} className="size-6 sm:size-9" alt={alt} />
+                    </div>
                   </div>
-                </li>
-              ))}
-            </ul>
-            <button className="mt-16 text-xs font-space tracking-widest uppercase font-bold h-10 px-6 rounded-lg border-gradient">
-              Try it now
-            </button>
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="inline-flex relative">
-              <div className="absolute inset-0">
-                <div className="absolute size-[300px] border border-gray-700 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute size-[450px] border border-gray-700 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                ))}
+                <Logo className="size-24" />
               </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center">
-                  <img src={slackLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-45">
-                  <img src={dockerLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-90">
-                  <img src={figmaLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-135">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-135">
-                  <img src={githubLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-180">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-180">
-                  <img src={vsCodeLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-225">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-225">
-                  <img src={notionLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-270">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-270">
-                  <img src={jiraLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="absolute size-[450px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-315">
-                <div className="absolute size-14 rounded-lg bg-gray-950 border border-gray-700 top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 inline-flex items-center justify-center -rotate-315">
-                  <img src={gcpLogo} className="size-9" />
-                </div>
-              </div>
-              <div className="size-24 rounded-full border-gradient before:border-4 after:border-4"></div>
             </div>
           </div>
-        </div>
+        </SectionBorder>
       </div>
     </section>
   );
