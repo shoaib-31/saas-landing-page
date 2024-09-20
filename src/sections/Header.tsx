@@ -52,7 +52,7 @@ export const Header = () => {
   };
   return (
     <>
-      <header className="border-b border-gray-800 bg-gray-950/90 z-40 sticky top-0">
+      <header className="border-b border-gray-800 bg-gray-950 z-40 sticky top-0">
         <div className="container">
           <div className="flex justify-between items-center h-18 lg:h-20">
             <a href="/" className="flex items-center gap-4">
