@@ -1,10 +1,4 @@
-import React from "react";
-import PricingCard from "../components/PricingCard";
-import { SectionBorder } from "@/components/SectionBorder";
-import { PricingCardProps } from "@/components/PricingCard";
-import { SectionContent } from "@/components/SectionContent";
-
-const pricingTiers = [
+export const pricingTiers = [
   {
     title: "Basic",
     description: "AI chatbot, personalized recommendations",
@@ -35,6 +29,7 @@ const pricingTiers = [
   {
     title: "Enterprise",
     description: "Custom AI chatbot, advanced analytics, dedicated account",
+    price: null,
     buttonText: "Contact Us",
     buttonVariant: "primary",
     features: [
@@ -47,29 +42,10 @@ const pricingTiers = [
     color: "teal",
     className: "lg:py-12 lg:my-6",
   },
-] satisfies PricingCardProps[];
+];
 
 export const Pricing = () => {
-  return (
-    <section>
-      <div className="container">
-        <SectionBorder borderTop>
-          <SectionContent className="relative">
-            <h2 className="text-gray-200 text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-center">
-              Flexible plans for every need
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 md:max-w-md mx-auto lg:max-w-none">
-              {pricingTiers.map((tier) => (
-                <div key={tier.title} className="max-w-sm mx-auto">
-                  <PricingCard {...tier} />
-                </div>
-              ))}
-            </div>
-          </SectionContent>
-        </SectionBorder>
-      </div>
-    </section>
-  );
+  return <section>Pricing Section</section>;
 };
 
 export default Pricing;
