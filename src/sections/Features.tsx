@@ -8,7 +8,7 @@ import notionLogo from "../assets/images/notion-logo.png";
 import jiraLogo from "../assets/images/jira-logo.png";
 import gcpLogo from "../assets/images/gcp-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionBorder } from "@/components/SectionBorder";
@@ -66,7 +66,7 @@ const logos = [
 
 export const Features = () => {
   return (
-    <section>
+    <section className="overflow-x-clip">
       <div className="container">
         <SectionBorder
           className="py-24 md:py-36 lg:py-48 md:px-20 lg:px-40"

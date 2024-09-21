@@ -1,6 +1,13 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 
+export type ButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+  variant?: "primary" | "secondary" | "tertiary";
+  block?: boolean;
+};
+
 const classes = cva(
   "text-xs font-space tracking-widest uppercase font-bold h-10 px-6 transition duration-300 rounded-lg text-gray-200",
   {
@@ -21,12 +28,7 @@ const classes = cva(
   }
 );
 
-export const Button = (props: {
-  children: React.ReactNode;
-  className?: string;
-  variant?: "primary" | "secondary" | "tertiary";
-  block?: boolean;
-}) => {
+export const Button = (props: ButtonProps) => {
   const { className = "", children, ...otherProps } = props;
   return (
     <button className={classes({ ...otherProps, className })}>

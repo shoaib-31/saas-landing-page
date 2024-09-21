@@ -9,8 +9,8 @@ export const SectionBorder = (
   return (
     <div
       className={twMerge(
-        "border-l border-r px-4 border-gray-800 relative",
-        props.borderTop ? "border-t" : "",
+        "border-l border-r border-[var(--border-color)] relative",
+        props.borderTop && "border-t",
         props.className
       )}
     >
@@ -24,6 +24,7 @@ export const SectionBorder = (
           </div>
         </>
       )}
+
       {props.children}
     </div>
   );

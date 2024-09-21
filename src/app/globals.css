@@ -10,6 +10,7 @@
     --color-teal-300: theme("colors.teal.300");
     --color-fuchsia-900: theme("colors.fuchsia.900");
     --color-indigo-900: theme("colors.indigo.900");
+    --border-color: theme("colors.gray.200/20%");
   }
 
   .border-gradient {
