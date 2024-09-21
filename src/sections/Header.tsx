@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import logo from "../assets/images/sphereal-logo.svg?url";
 import { Button } from "../components/Button";
 import { twMerge } from "tailwind-merge";
+import { Orbit } from "@/components/Orbit";
 
 const navItems = [
   {
@@ -115,7 +116,21 @@ export const Header = () => {
         </div>
       </header>
       {isMobileNavOpen && (
-        <div className="fixed top-18 left-0 right-0 bottom-0 lg:top-20 z-30 overflow-y-scroll">
+        <div className="fixed top-18 left-0 right-0 bottom-0 lg:top-20 z-30 overflow-y-scroll bg-gray-950 isolate">
+          <div className="absolute -z-10 inset-0 overflow-hidden">
+            <div className="absolute-center">
+              <Orbit className="size-[200px]" />
+            </div>
+            <div className="absolute-center">
+              <Orbit className="size-[350px]" />
+            </div>
+            <div className="absolute-center">
+              <Orbit className="size-[500px]" />
+            </div>
+            <div className="absolute-center">
+              <Orbit className="size-[650px]" />
+            </div>
+          </div>
           <div className="container h-full">
             <nav className="flex flex-col items-center justify-center gap-4 py-8 overflow-y-scroll h-full max-w-xs mx-auto">
               {[...navItems].map((item) => (
