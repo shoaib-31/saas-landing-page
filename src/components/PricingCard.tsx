@@ -4,6 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button, ButtonProps } from "./Button";
 
+export type PricingCardProps = {
+  title: string;
+  price?: number | string;
+  description: string;
+  features: string[];
+  buttonText: string;
+  buttonVariant?: ButtonProps["variant"];
+  className?: string;
+  color?: string;
+};
+
 export const PricingCard = ({
   title,
   price,
@@ -13,20 +24,11 @@ export const PricingCard = ({
   buttonVariant = "secondary",
   className,
   color,
-}: {
-  title: string;
-  price?: string;
-  description: string;
-  features: string[];
-  buttonText: string;
-  buttonVariant?: ButtonProps["variant"];
-  className?: string;
-  color?: string;
-}) => {
+}: PricingCardProps) => {
   return (
     <div
       className={twMerge(
-        "border border-[var(--border-color)] rounded-3xl py-12 px-6 my-6",
+        "border border-[var(--border-color)] rounded-3xl py-12 px-6",
         className
       )}
     >
@@ -41,7 +43,9 @@ export const PricingCard = ({
       </h3>
       <p className="text-gray-400 mt-4">{description}</p>
       <div className="flex mt-8 text-gray-200">
-        <div className="text-2xl font-semibold">{price && "$"}</div>
+        <div className="text-2xl font-semibold">
+          {!!price && typeof price === "number" && "$"}
+        </div>
         <div className="text-8xl font-semibold text-gray-200">
           {price ? price : <>&nbsp;</>}
         </div>

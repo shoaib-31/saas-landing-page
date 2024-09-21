@@ -17,7 +17,7 @@ const classes = cva(
       },
       variant: {
         primary: "border-gradient",
-        secondary: "bg-gray-300 text-gray-950",
+        secondary: "bg-gray-100 text-gray-950",
         tertiary: "bg-gray-800",
       },
     },

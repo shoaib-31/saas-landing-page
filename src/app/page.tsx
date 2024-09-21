@@ -17,7 +17,7 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       <CallToAction />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

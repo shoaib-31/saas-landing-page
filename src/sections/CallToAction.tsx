@@ -1,8 +1,10 @@
 import React from "react";
+import underlineImage from "@/assets/images/underline.svg?url";
 import { SectionBorder } from "@/components/SectionBorder";
 import Planet from "@/components/Planet";
 import { Orbit } from "@/components/Orbit";
 import { SectionContent } from "@/components/SectionContent";
+import { Button } from "@/components/Button";
 
 export const CallToAction = () => {
   return (
@@ -72,17 +74,29 @@ export const CallToAction = () => {
             </div>
 
             <div>
-              <h2 className="font-semibold text-5xl max-w-3xl mx-auto text-center leading-tight">
-                Be part of the future with Brainwave
+              <h2 className="text-gray-200 font-semibold text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto text-center leading-tight">
+                Join the AI Revolution with{" "}
+                <span className="relative isolate">
+                  <span>Sphereal</span>
+                  <div
+                    className="absolute -z-10 left-0 top-full -translate-y-1/2 w-full h-4 bg-[linear-gradient(to_right,var(--color-amber-300),var(--color-teal-300),var(--color-violet-400),var(--color-fuchsia-400))]"
+                    style={{
+                      maskImage: `url(${underlineImage.src})`,
+                      maskSize: "contain",
+                      maskRepeat: "no-repeat",
+                    }}
+                  ></div>
+                </span>
               </h2>
-              <p className="max-w-2xl mx-auto text-center text-xl text-gray-400 mt-4">
-                Unleash the power of AI within Brainwave. Upgrade your
-                productivity with Brainwave, the open AI chat app.
+              <p className="max-w-2xl mx-auto text-center text-xl text-gray-300 mt-8">
+                Experience the transformative power of AI with Sphereal. Boost
+                your productivity and streamline your workflow with our
+                innovative AI chat platform.
               </p>
               <div className="justify-center flex">
-                <button className="font-space text-xs font-bold uppercase tracking-widest bg-gray-200 text-gray-950 h-10 px-6 rounded-lg mt-10">
-                  Get started
-                </button>
+                <Button variant="secondary" className="mt-10">
+                  Get Started
+                </Button>
               </div>
             </div>
           </SectionContent>

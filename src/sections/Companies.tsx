@@ -14,7 +14,7 @@ export const Companies = () => {
         <SectionBorder>
           <SectionContent className="!pt-0">
             <h3 className="text-center text-xs font-bold uppercase tracking-widest text-gray-500">
-              Helping people create beautiful content at
+              Empowering creators at leading companies
             </h3>
             <div className="flex overflow-x-hidden -mx-4 lg:-mx-8">
               <div className="flex flex-none justify-center gap-18 md:gap-36 px-18 mt-20">

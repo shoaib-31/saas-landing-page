@@ -1,26 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import robotImg from "../assets/images/robot.jpg";
 import Loader from "../assets/images/loader.svg";
+import underlineImage from "../assets/images/underline.svg?url";
 import { Planet } from "@/components/Planet";
 import { Orbit } from "@/components/Orbit";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionBorder } from "@/components/SectionBorder";
 import { SectionContent } from "@/components/SectionContent";
-import { useRelativeMousePosition } from "@/utils/useRelativeMousePosition";
-import { motion, useMotionValueEvent, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const ANIMATE_SECTION = false;
 
 export const Hero = () => {
-  const { x, y } = useRelativeMousePosition();
-  const moveX = useTransform(x, [0, 1], [-25, 25]);
-  const moveY = useTransform(y, [0, 1], [-25, 25]);
-  useMotionValueEvent(x, "change", (latest) => {
-    console.log("x", latest);
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["end start", "start end"],
   });
+  const transformedY = useTransform(scrollYProgress, [0, 1], [200, -200]);
+  const cardY = ANIMATE_SECTION ? transformedY : 0;
+
   return (
-    <section className="">
+    <section className="" ref={sectionRef}>
       <div className="container">
         <SectionBorder className="overflow-x-clip relative isolate overflow-hidden">
           <SectionContent className="[mask-image:linear-gradient(transparent,black_10%,black_90%,transparent)]">
@@ -45,15 +49,28 @@ export const Hero = () => {
               </div>
 
               <h1 className="text-center text-4xl md:text-5xl lg:text-6xl max-w-4xl mx-auto font-semibold leading-tight text-gray-100">
-                Explore the Possibilities of AI Chatting with Brainwave
+                Unlock the Future of AI Conversations with{" "}
+                <span className="relative isolate">
+                  <span>Sphereal</span>
+                  <div
+                    className="absolute -z-10 left-0 top-full -translate-y-1/2 w-full h-4 bg-[linear-gradient(to_right,var(--color-amber-300),var(--color-teal-300),var(--color-violet-400),var(--color-fuchsia-400))]"
+                    style={{
+                      maskImage: `url(${underlineImage.src})`,
+                      maskSize: "100% 100%",
+                      maskRepeat: "no-repeat",
+                      maskPosition: "center",
+                    }}
+                  ></div>
+                </span>
               </h1>
-              <p className="text-center font-medium text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-8 font-space">
-                Unleash the power of AI within Brainwave. Upgrade your
-                productivity with Brainwave, the Open AI chat app.
+              <p className="text-center text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-8">
+                Harness the power of AI with Sphereal. Elevate your productivity
+                and streamline your workflow with our cutting-edge AI chat
+                platform.
               </p>
               <div className="flex justify-center">
                 <Button variant="secondary" className="mt-10">
-                  Get Started
+                  Start Chatting
                 </Button>
               </div>
               <div className="flex justify-center mt-20">
@@ -176,7 +193,7 @@ export const Hero = () => {
                         </div>
                         <div className="font-space font-semibold text-white text-xl">
                           AI is generating
-                          <span className="animate-cursor-blink">|</span>
+                          <span className="">|</span>
                         </div>
                       </div>
                     </div>
@@ -184,8 +201,11 @@ export const Hero = () => {
                   {/* End Floating Input Field */}
 
                   {/* Begin Chat Bubbles */}
-                  <div className="absolute z-10 left-0 -translate-x-10 xl:-translate-x-1/2 top-[40%] hidden lg:block">
-                    <div className="bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72 font-space text-white">
+                  <div className="absolute z-10 left-0 -translate-x-10 xl:-translate-x-1/2 top-[30%] hidden lg:block">
+                    <motion.div
+                      className="bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72 font-space text-white"
+                      style={{ translateY: cardY }}
+                    >
                       <div>
                         Can you generate an incredible frontend dev video
                         tutorial?
@@ -193,10 +213,13 @@ export const Hero = () => {
                       <div className="text-right text-gray-400 text-sm font-semibold">
                         1m ago
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
-                  <div className="absolute z-10 right-0 translate-x-10 xl:translate-x-1/2 top-[60%] hidden lg:block">
-                    <div className="bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72 font-space text-white">
+                  <div className="absolute z-10 right-0 translate-x-10 xl:translate-x-1/2 top-[50%] hidden lg:block">
+                    <motion.div
+                      style={{ translateY: cardY }}
+                      className="bg-gray-800/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 w-72 font-space text-white"
+                    >
                       <div>
                         <strong>Brainwave:</strong> I created one based on
                         videos from Frontend Tribe!
@@ -204,7 +227,7 @@ export const Hero = () => {
                       <div className="text-right text-gray-400 text-sm font-semibold">
                         Just now
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                   {/* End Chat Bubbles */}
                 </div>
