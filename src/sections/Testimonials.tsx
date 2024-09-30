@@ -1,8 +1,8 @@
 import React from "react";
-import AshwinSantiago from "@/assets/images/ashwin-santiago.png";
-import AlecWhitten from "@/assets/images/alec-whitten.png";
-import ReneWells from "@/assets/images/rene-wells.png";
-import MollieHall from "@/assets/images/mollie-hall.png";
+import AshwinSantiago from "@/assets/images/ashwin-santiago.jpg";
+import AlecWhitten from "@/assets/images/alec-whitten.jpg";
+import ReneWells from "@/assets/images/rene-wells.jpg";
+import MollieHall from "@/assets/images/mollie-hall.jpg";
 
 export const testimonials = [
   {
