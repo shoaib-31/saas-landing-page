@@ -14,7 +14,7 @@ const spaceGroteskFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Futuristic AI Themed Website",
+  title: "AI SaaS Landing Page",
   description: "Created by Frontend Tribe",
 };
 
